@@ -12,7 +12,7 @@
   <run_depend>pmb3_controller_configuration_gazebo</run_depend>
   <run_depend>pmb3_description</run_depend>
   <run_depend>pal_hardware_gazebo</run_depend>
-  <run_depend>pmb2_bringup</run_depend>
+  <run_depend>pmb3_bringup</run_depend>
   <run_depend>gazebo_ros</run_depend>
   <run_depend>gazebo_plugins</run_depend>
   <run_depend>pal_gazebo_worlds</run_depend>
