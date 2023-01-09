@@ -2,6 +2,9 @@
 Changelog for package pmb3_controller_configuration_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.2 (2022-12-12)
 ------------------
 * Merge branch 'created_pmb3_simulation' into 'gallium-devel'

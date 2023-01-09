@@ -2,6 +2,11 @@
 Changelog for package pmb3_2dnav_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Update pmb3_navigation.launch
+* Contributors: josegarcia
+
 0.0.2 (2022-12-12)
 ------------------
 * Merge branch 'created_pmb3_simulation' into 'gallium-devel'
