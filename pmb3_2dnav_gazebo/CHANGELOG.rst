@@ -2,8 +2,8 @@
 Changelog for package pmb3_2dnav_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.3 (2023-01-09)
+------------------
 * Update pmb3_navigation.launch
 * Contributors: josegarcia
 

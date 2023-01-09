@@ -2,8 +2,8 @@
 Changelog for package pmb3_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.3 (2023-01-09)
+------------------
 * Merge branch 'fix/pmb3-gazebo-deps' into 'gallium-devel'
   replace pmb2_bringup by pmb3_bringup
   See merge request robots/pmb3_simulation!2
