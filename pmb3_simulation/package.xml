@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>pmb3_simulation</name>
   <version>0.0.3</version>
   <description>PMB3-specific simulation components. These include plugins
@@ -10,10 +10,10 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>pmb3_controller_configuration_gazebo</run_depend>
-  <run_depend>pmb3_gazebo</run_depend>
-  <run_depend>pal_hardware_gazebo</run_depend>
-  <run_depend>pmb3_2dnav_gazebo</run_depend> 
+  <exec_depend>pmb3_controller_configuration_gazebo</exec_depend>
+  <exec_depend>pmb3_gazebo</exec_depend>
+  <exec_depend>pal_hardware_gazebo</exec_depend>
+  <exec_depend>pmb3_2dnav_gazebo</exec_depend> 
 
   <export>
     <metapackage/>
