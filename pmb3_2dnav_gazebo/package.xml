@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>pmb3_2dnav_gazebo</name>
   <version>0.0.3</version>
   <description>PMB3-specific launch files needed to run
@@ -10,7 +10,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>pmb3_gazebo</run_depend>
-  <run_depend>pmb3_2dnav</run_depend>
+  <exec_depend>pmb3_gazebo</exec_depend>
+  <exec_depend>pmb3_2dnav</exec_depend>
 </package>
 

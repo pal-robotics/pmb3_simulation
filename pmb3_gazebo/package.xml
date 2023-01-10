@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>pmb3_gazebo</name>
   <version>0.0.3</version>
   <description>Simulation files for the PMB3 robot.</description>
@@ -9,14 +9,15 @@
   
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>pmb3_controller_configuration_gazebo</run_depend>
-  <run_depend>pmb3_description</run_depend>
-  <run_depend>pal_hardware_gazebo</run_depend>
-  <run_depend>pmb3_bringup</run_depend>
-  <run_depend>gazebo_ros</run_depend>
-  <run_depend>gazebo_plugins</run_depend>
-  <run_depend>pal_gazebo_worlds</run_depend>
-  <run_depend>pal_gazebo_plugins</run_depend>
-  <run_depend>simple_models_gazebo</run_depend>
+  <exec_depend>pmb3_controller_configuration_gazebo</exec_depend>
+  <exec_depend>pmb3_description</exec_depend>
+  <exec_depend>pal_hardware_gazebo</exec_depend>
+  <exec_depend>pmb3_bringup</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>pal_gazebo_worlds</exec_depend>
+  <exec_depend>pal_gazebo_plugins</exec_depend>
+  <exec_depend>simple_models_gazebo</exec_depend>
+  <exec_depend>realsense_gazebo_plugin</exec_depend>
 
 </package>
