@@ -135,9 +135,6 @@
         filter_limit_negative: True
       </rosparam>
     </node>
-
-    <param name="/move_base/global_costmap/obstacle_rgbd_layer/enabled" value="true" />
-    <param name="/move_base/local_costmap/obstacle_rgbd_layer/enabled" value="true" />
   </group>
 
     
