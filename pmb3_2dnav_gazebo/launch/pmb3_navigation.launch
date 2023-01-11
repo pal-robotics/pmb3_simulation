@@ -2,6 +2,7 @@
 <launch>
   <arg name="namespace" default="/"/>
 
+  <arg name="public_sim"   default="false"/>
   <arg name="world"  default="small_office"/>
   <arg name="laser_model"  default="sick-571"/>
 
@@ -43,6 +44,7 @@
       <arg name="localization"   value="$(arg localization)"/>
       <arg name="map"            value="$(arg map)"/>
       <arg name="octomap"        value="$(arg octomap)"/>
+      <arg name="public_sim" value="$(arg public_sim)"/>
       <arg name="laser_model"    value="$(arg laser_model)"/>
       <arg name="use_rgbd"      value="$(arg use_rgbd)"/>
     </include>
