@@ -45,11 +45,11 @@
   
   <!-- Laser filter (empty for public sim) -->
   <node name="laser_filter" pkg="laser_filters" type="scan_to_scan_filter_chain">
-    <rosparam file="$(find pmb3_laser_sensors)/config/$(arg laser_model)_filter.yaml" command="load"/>
+    <rosparam file="$(find pmb3_laser_sensors)/config/$(arg laser_model)_filter.yaml" command="load" unless="$(arg public_sim)"/>
     <remap from="scan"          to="scan_raw"/>
     <remap from="scan_filtered" to="scan"/>
   </node>
-  
+
   <group unless="$(arg public_sim)">
     <!-- VO map server -->
     <include file="$(find pal_vo_server)/launch/vo_server.launch"/>
@@ -58,22 +58,86 @@
     <include file="$(find highways_server)/launch/highways_server.launch"/>
 
 
-  <!-- pcl filter for base rgbd camera -->
-  <node name="base_rgbd_camera_filter" pkg="pal_pcl" type="pal_stockbot_floor_filter_node" output="screen">
-    <remap from="cloud1" to="/base_rgbd_camera/depth/color/points"/>
-    <rosparam command="load" file="$(find pmb3_rgbd_sensors)/config/base_floor_filter_$(arg filter_suffix).yaml" />
-  </node>
+    <group if="$(arg use_rgbd)">
+      <arg name="filter_suffix" value="realsense"/>
 
-  <!-- pcl filter for roof rgbd camera -->
-  <node name="roof_rgbd_camera_filter" pkg="pal_pcl" type="pal_stockbot_floor_filter_node" output="screen">
-    <remap from="cloud1" to="/roof_rgbd_camera/depth/color/points"/>
-    <rosparam command="load" file="$(find pmb3_rgbd_sensors)/config/roof_floor_filter_$(arg filter_suffix).yaml" />
-  </node>
+      <!-- pcl filter for base rgbd camera -->
+      <node name="base_rgbd_camera_filter" pkg="pal_pcl" type="pal_stockbot_floor_filter_node" output="screen">
+        <remap from="cloud1" to="/base_rgbd_camera/depth/color/points"/>
+        <rosparam command="load" file="$(find pmb3_rgbd_sensors)/config/base_floor_filter_$(arg filter_suffix).yaml" />
+      </node>
+
+      <!-- pcl filter for roof rgbd camera -->
+      <node name="roof_rgbd_camera_filter" pkg="pal_pcl" type="pal_stockbot_floor_filter_node" output="screen">
+        <remap from="cloud1" to="/roof_rgbd_camera/depth/color/points"/>
+        <rosparam command="load" file="$(find pmb3_rgbd_sensors)/config/roof_floor_filter_$(arg filter_suffix).yaml" />
+      </node>
+    </group>
+
+    <group unless="$(arg use_rgbd)">
+      <param name="/move_base/global_costmap/obstacle_rgbd_layer/enabled" value="false" />
+      <param name="/move_base/local_costmap/obstacle_rgbd_layer/enabled" value="false" />
+    </group>
   </group>
 
   <group if="$(arg public_sim)">
-    <param name="/move_base/global_costmap/obstacle_rgbd_layer/enabled" value="false" />
-    <param name="/move_base/local_costmap/obstacle_rgbd_layer/enabled" value="false" />
+    <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
+    <arg name="filter_suffix" value="realsense"/>
+
+    <!-- First pcl filter for base rgbd camera to remove the ground -->
+    <node name="base_rgbd_camera_filter_intermediate" pkg="nodelet" type="nodelet"  args="load pcl/PassThrough pcl_manager" output="screen">
+      <remap from="~input" to="/base_rgbd_camera/depth/color/points"/>
+      <remap from="~output" to="/base_rgbd_camera_filter/filtered_cloud_intermediate"/>
+      <rosparam>
+        input_frame: base_footprint
+        filter_field_name: z
+        filter_limit_min: -0.03
+        filter_limit_max: 0.03
+        filter_limit_negative: True
+      </rosparam>
+    </node>
+
+    <!-- First pcl filter for roof rgbd camera to remove the ground -->
+    <node name="roof_rgbd_camera_filter_intermediate" pkg="nodelet" type="nodelet"  args="load pcl/PassThrough pcl_manager" output="screen">
+      <remap from="~input" to="/roof_rgbd_camera/depth/color/points"/>
+      <remap from="~output" to="/roof_rgbd_camera_filter/filtered_cloud_intermediate"/>
+      <rosparam>
+        input_frame: base_footprint
+        filter_field_name: z
+        filter_limit_min: -0.03
+        filter_limit_max: 0.03
+        filter_limit_negative: True
+      </rosparam>
+    </node>
+
+    <!-- Second pcl filter for base rgbd camera to remove points above the robot -->
+    <node name="base_rgbd_camera_filter" pkg="nodelet" type="nodelet"  args="load pcl/PassThrough pcl_manager" output="screen">
+      <remap from="~input" to="/base_rgbd_camera_filter/filtered_cloud_intermediate"/>
+      <remap from="~output" to="/base_rgbd_camera_filter/filtered_cloud"/>
+      <rosparam>
+        input_frame: base_footprint
+        filter_field_name: z
+        filter_limit_min: 0.5 <!-- height of the robot 0.295 + antenna + tolerance -->
+        filter_limit_max: 300 <!-- high value to remove the above points -->
+        filter_limit_negative: True
+      </rosparam>
+    </node>
+
+    <!-- Second pcl filter for roof rgbd camera to remove points above the robot -->
+    <node name="roof_rgbd_camera_filter" pkg="nodelet" type="nodelet"  args="load pcl/PassThrough pcl_manager" output="screen">
+      <remap from="~input" to="/roof_rgbd_camera_filter/filtered_cloud_intermediate"/>
+      <remap from="~output" to="/roof_rgbd_camera_filter/filtered_cloud"/>
+      <rosparam>
+        input_frame: base_footprint
+        filter_field_name: z
+        filter_limit_min: 0.5 <!-- height of the robot 0.295 + antenna + tolerance -->
+        filter_limit_max: 300 <!-- high value to remove the above points -->
+        filter_limit_negative: True
+      </rosparam>
+    </node>
+
+    <param name="/move_base/global_costmap/obstacle_rgbd_layer/enabled" value="true" />
+    <param name="/move_base/local_costmap/obstacle_rgbd_layer/enabled" value="true" />
   </group>
 
     
