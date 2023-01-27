@@ -22,7 +22,7 @@
   <!-- Localization or Mapping state -->
   <group if="$(arg public_sim)">
     <node pkg="pal_navigation_sm" type="navigation.sh" name="navigation"
-        args="pmb2 $(arg state) $(arg localization) $(arg mapping) $(arg map) $(arg scan_topic) $(arg laser_model) pmb3 false $(arg robot_namespace)"/>
+        args="pmb3 $(arg state) $(arg localization) $(arg mapping) $(arg map) $(arg scan_topic) $(arg laser_model) pmb3 false $(arg robot_namespace)"/>
   </group>
 
   <group unless="$(arg public_sim)">
