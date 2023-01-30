@@ -2,6 +2,14 @@
 Changelog for package pmb3_controller_configuration_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/point-cloud-publication' into 'gallium-devel'
+  fixed point cloud publication
+  See merge request robots/pmb3_simulation!4
+* fixed point cloud publication
+* Contributors: josecarlos, josegarcia
+
 0.0.3 (2023-01-09)
 ------------------
 
