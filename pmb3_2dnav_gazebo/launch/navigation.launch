@@ -8,7 +8,6 @@
   <arg name="local_planner"  default="pal"/>
   <arg name="localization"   default="amcl"/>
   <arg name="mapping"        default="karto"/>
-  <arg name="octomap"        default="false"/>
   <arg name="public_sim"     default="false"/>
   <arg name="robot_namespace"   default=""/>
   <arg name="scan_topic"    default="scan_raw"/>
@@ -19,16 +18,23 @@
 
   <arg name="map" default="$(env HOME)/.pal/pmb3_maps/config"/>
 
+  <!-- Map -->
   <!-- Localization or Mapping state -->
-  <node pkg="pal_navigation_sm" type="navigation.sh" name="navigation"
-        args="pmb3 $(arg state) $(arg localization) $(arg mapping) $(arg map) $(arg octomap) $(arg scan_topic) $(arg laser_model) $(arg robot_namespace)"/>
+  <group if="$(arg public_sim)">
+    <node pkg="pal_navigation_sm" type="navigation.sh" name="navigation"
+        args="pmb3 $(arg state) $(arg localization) $(arg mapping) $(arg map) $(arg scan_topic) $(arg laser_model) pmb3 false $(arg robot_namespace)"/>
+  </group>
+
+  <group unless="$(arg public_sim)">
+    <include file="$(find pal_map_manager)/launch/pal_map_manager.launch">
+      <arg name="map"       value="$(arg map)"/>
+    </include>
+  </group>
 
   <!-- Navigation State Machine -->
   <include file="$(find pmb3_2dnav)/launch/state_machine.launch">
     <arg name="state" value="$(arg state)"/>
-    <arg name="public_sim" value="$(arg public_sim)"/>
-    <arg name="map_frame" value="/$(arg robot_namespace)/map"/>
-    <arg name="base_frame" value="/$(arg robot_namespace)/base_footprint"/>
+    <arg name="is_sim"  value="true"/>
   </include>
 
   <!-- Planning -->
