@@ -2,6 +2,14 @@
 Changelog for package pmb3_2dnav_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_public_sim' into 'gallium-devel'
+  Add public sim argument to the state_machine
+  See merge request robots/pmb3_simulation!7
+* Add public sim argument to the state_machine
+* Contributors: antoniobrandi, thomaspeyrucain
+
 0.0.4 (2023-01-30)
 ------------------
 * Merge branch 'feat/map-manager' into 'gallium-devel'

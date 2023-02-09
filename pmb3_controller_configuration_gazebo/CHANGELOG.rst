@@ -2,6 +2,9 @@
 Changelog for package pmb3_controller_configuration_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.4 (2023-01-30)
 ------------------
 * Merge branch 'fix/point-cloud-publication' into 'gallium-devel'
