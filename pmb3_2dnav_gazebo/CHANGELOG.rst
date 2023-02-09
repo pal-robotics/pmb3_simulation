@@ -2,6 +2,14 @@
 Changelog for package pmb3_2dnav_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/remove-octomap' into 'gallium-devel'
+  Update localization.launch
+  See merge request robots/pmb3_simulation!8
+* Update localization.launch
+* Contributors: antoniobrandi
+
 0.0.5 (2023-02-09)
 ------------------
 * Merge branch 'fix_public_sim' into 'gallium-devel'
