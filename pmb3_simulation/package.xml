@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>pmb3_simulation</name>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
   <description>PMB3-specific simulation components. These include plugins
                and launch scripts necessary for running PMB3 in simulation.</description>
   <author email="andrea.capodacqua@pal-robotics.com">Andrea Capodacqua</author>
