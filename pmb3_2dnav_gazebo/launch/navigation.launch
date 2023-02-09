@@ -35,6 +35,7 @@
   <include file="$(find pmb3_2dnav)/launch/state_machine.launch">
     <arg name="state" value="$(arg state)"/>
     <arg name="is_sim"  value="true"/>
+    <arg name="public_sim" value="$(arg public_sim)"/>
   </include>
 
   <!-- Planning -->
