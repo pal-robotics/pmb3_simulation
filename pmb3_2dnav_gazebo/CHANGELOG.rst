@@ -2,8 +2,8 @@
 Changelog for package pmb3_2dnav_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.7 (2023-02-23)
+------------------
 * Merge branch 'feat/share-mmap' into 'gallium-devel'
   deprecating map_configuration_server
   See merge request robots/pmb3_simulation!6
