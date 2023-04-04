@@ -2,6 +2,15 @@
 Changelog for package pmb3_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix_worlds' into 'gallium-devel'
+  Remove Media, models and worlds folders to move them to pal_gazebo_worlds
+  See merge request robots/pmb3_simulation!9
+* Remove Media, models and worlds from the install rules
+* Remove Media, models and worlds folders to move them to pal_gazebo_worlds
+* Contributors: saikishor, thomaspeyrucain
+
 0.0.7 (2023-02-23)
 ------------------
 

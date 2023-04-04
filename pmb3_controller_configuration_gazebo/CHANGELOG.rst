@@ -2,6 +2,9 @@
 Changelog for package pmb3_controller_configuration_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.7 (2023-02-23)
 ------------------
 
