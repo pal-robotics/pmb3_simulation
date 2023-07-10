@@ -2,6 +2,14 @@
 Changelog for package pmb3_2dnav_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/filter_suffix' into 'gallium-devel'
+  fix filter_suffix
+  See merge request robots/pmb3_simulation!10
+* fix filter_suffix
+* Contributors: andreacapodacqua, josegarcia
+
 0.0.8 (2023-04-04)
 ------------------
 
