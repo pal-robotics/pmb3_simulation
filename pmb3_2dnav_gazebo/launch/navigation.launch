@@ -66,7 +66,7 @@
 
 
     <group if="$(arg use_rgbd)">
-      <arg name="filter_suffix" value="realsense"/>
+      <arg name="filter_suffix" value="realsense-d435"/>
 
       <!-- pcl filter for base rgbd camera -->
       <node name="base_rgbd_camera_filter" pkg="pal_pcl" type="pal_stockbot_floor_filter_node" output="screen">
@@ -89,8 +89,7 @@
 
   <group if="$(arg public_sim)">
     <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen" />
-    <arg name="filter_suffix" value="realsense"/>
-
+    
     <!-- First pcl filter for base rgbd camera to remove the ground -->
     <node name="base_rgbd_camera_filter_intermediate" pkg="nodelet" type="nodelet"  args="load pcl/PassThrough pcl_manager" output="screen">
       <remap from="~input" to="/base_rgbd_camera/depth/color/points"/>
