@@ -1,21 +1,23 @@
 <?xml version="1.0"?>
-<package format="2">
+<package format="3">
   <name>pmb3_simulation</name>
   <version>0.0.9</version>
-  <description>PMB3-specific simulation components. These include plugins
-               and launch scripts necessary for running PMB3 in simulation.</description>
-  <author email="andrea.capodacqua@pal-robotics.com">Andrea Capodacqua</author>
-  <maintainer email="jose.garcia@pal-robotics.com">Jose Garcia</maintainer>
-  <license>BSD</license>
+  <description>
+    PMB3-specific simulation components. These include plugins
+    and launch scripts necessary for running PMB3 in simulation
+  </description>
+  <author email="yue.erro@pal-robotics.com">Yue Erro</author>
+  <maintainer email="yue.erro@pal-robotics.com">Yue Erro</maintainer>
+  <license>Apache License 2.</license>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
-  <exec_depend>pmb3_controller_configuration_gazebo</exec_depend>
   <exec_depend>pmb3_gazebo</exec_depend>
-  <exec_depend>pal_hardware_gazebo</exec_depend>
-  <exec_depend>pmb3_2dnav_gazebo</exec_depend> 
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
-    <metapackage/>
+    <build_type>ament_cmake</build_type>
   </export>
 </package>

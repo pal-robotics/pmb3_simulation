@@ -2,22 +2,32 @@
 <package format="2">
   <name>pmb3_gazebo</name>
   <version>0.0.9</version>
-  <description>Simulation files for the PMB3 robot.</description>
-  <maintainer email="jose.garcia@pal-robotics.com">Jose Garcia</maintainer>
-  <author email="andrea.capodacqua@pal-robotics.com">Andrea Capodacqua</author>
-  <license>BSD</license>
+  <description>Simulation files for the PMB3 robot</description>
+  <author email="yue.erro@pal-robotics.com">Yue Erro</author>
+  <maintainer email="yue.erro@pal-robotics.com">Yue Erro</maintainer>
+  <license>Apache License 2.0</license>
   
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
-  <exec_depend>pmb3_controller_configuration_gazebo</exec_depend>
-  <exec_depend>pmb3_description</exec_depend>
-  <exec_depend>pal_hardware_gazebo</exec_depend>
+  <exec_depend>launch_pal</exec_depend>
   <exec_depend>pmb3_bringup</exec_depend>
+  <exec_depend>pmb2_description</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_ros2_control</exec_depend>
   <exec_depend>gazebo_plugins</exec_depend>
   <exec_depend>pal_gazebo_worlds</exec_depend>
   <exec_depend>pal_gazebo_plugins</exec_depend>
-  <exec_depend>simple_models_gazebo</exec_depend>
-  <exec_depend>realsense_gazebo_plugin</exec_depend>
+  <!-- @TODO: https://gitlab/robots/pmb3_navigation -->
+  <!-- <exec_depend>pmb3_2dnav</exec_depend> -->
+  <!-- @TODO: https://gitlab/robots/simple_models_robot -->
+  <!-- <exec_depend>simple_models_gazebo</exec_depend> -->
+  <!-- @TODO: https://gitlab/device/realsense_gazebo_plugin -->
+  <!-- <exec_depend>realsense_gazebo_plugin</exec_depend> -->
 
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
