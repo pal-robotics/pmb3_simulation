@@ -49,10 +49,12 @@ def generate_launch_description():
     pmb3_spawn = include_launch_py_description(
         'pmb3_gazebo', ['launch', 'pmb3_spawn.launch.py'])
     pmb3_bringup = include_launch_py_description(
-        'pmb3_bringup', ['launch', 'pmb3_bringup.launch.py'])
+        'pmb3_bringup', ['launch', 'pmb3_bringup.launch.py'],
+        launch_arguments={'use_sim_time': 'True'}.items())
     # @TODO: https://gitlab/robots/pmb3_navigation
     # navigation = include_launch_py_description(
     #     'pmb3_2dnav', ['launch', 'pmb3_sim_nav_bringup.launch.py'],
+    #     launch_arguments={'use_sim_time': 'True'}.items(),
     #     condition=IfCondition(LaunchConfiguration('navigation')))
 
     pkg_path = get_package_prefix('pmb3_description')
